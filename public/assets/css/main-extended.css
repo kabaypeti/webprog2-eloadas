@@ -1,0 +1,45 @@
+@import "main.css";
+
+#header > .container {
+    padding: 10em 0 2em 0;
+}
+
+label, a {
+    user-select: none;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+form label {
+    display: inline-block;
+}
+
+.small-text {
+    font-size: 80%;
+}
+
+.row input[type="submit"] {
+    width: 100%
+}
+
+input[type="checkbox"] {
+    appearance: checkbox;
+    display: inline-block;
+    transform: scale(1.3);
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#footer {
+    padding: 0 0 0 0;
+}
+
+#copyright {
+    margin-top: 2em;
+}
