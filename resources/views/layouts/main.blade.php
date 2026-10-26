@@ -16,7 +16,11 @@
 			<div class="container">
 				<!-- Nav -->
 					@include('navigation')
-					@yield('header')
+					@hasSection('header')
+						<div id="header-content">
+							@yield('header')
+						</div>
+					@endif
 				<!-- Header -->
 			</div>
 		</section>

@@ -2,8 +2,6 @@
 
 @section('title', 'Bejelentkezés')
 @section('header')
-	<h2>Bejelentkezés</h2>
-@endsection
 @section('content')
 	
 	<section id="main">
@@ -31,8 +29,8 @@
 								<span>Nem vagy még felhasználó? <a href="/register"><strong>Regisztrálj!</strong></a></span>
 							</div>
 							<div class="col-12">
-							<input type="submit" value="Bejelentkezés"/>
-						</div>
+								<input type="submit" value="Bejelentkezés"/>
+							</div>
 						</div>
 					</form>
 				</div>
