@@ -16,7 +16,15 @@
             <li><a class="icon solid fa-table" href="#"><span>CRUD</span></a></li>
         @endif
         <li>
-            <a class="icon fa-user"><span>Fiók</span></a>
+            @if(Auth::user() !== null)
+                <a class="icon fa-user solid-back">
+                    <span>{{ Auth::user()->name }}</span>
+                </a>
+            @else
+                <a class="icon fa-user">
+                    <span>Fiók</span>
+                </a>
+            @endif
             <ul>
                 @guest
                     <li><a href="/login">Bejelentkezés</a></li>

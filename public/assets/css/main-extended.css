@@ -26,10 +26,45 @@ form label {
 
 .small-text {
     font-size: 80%;
+    margin: initial;
 }
 
 .row input[type="submit"] {
     width: 100%
+}
+
+#nav > ul > li > a.solid-back::before {
+    background-color: black;
+    color: #ed786a;
+    box-shadow: none;
+}
+
+#nav > ul > li:hover > a.solid-back::before {
+    background-color: #ed786a;
+    color: black;
+}
+
+#nav > ul > li > a {
+    padding: 0.25em 0.4em 0.25em 0.4em;
+}
+
+#nav > ul > li > a.solid-back {
+    transition: color 0.25s ease-in-out;
+    transition: background-color 0.125s ease-in-out;
+    background-color: #ed786a;
+    color: black;
+    border-radius: 6px;
+    border: 0;
+    outline: 0;
+    box-shadow: 0.125em 0.125em 0 0 rgba(0, 0, 0, 0.125);
+}
+    #nav > ul > li > a.solid-back > span {
+        color: inherit;
+    }
+
+#nav > ul > li:hover > a.solid-back {
+    background-color: black;
+    color: #ed786a;
 }
 
 input[type="checkbox"] {
@@ -40,18 +75,10 @@ input[type="checkbox"] {
     margin-right: 1em;
 }
 
-.errorbox {
+span.alert-error {
     width: 100%;
-    background-color: #ff5d6a;
-    color: black;
-    border-radius: 4px;
-    border: 0;
-    outline: 0;
-    font-size: 1em;
-    text-align: center;
-    font-size: 0.85em;
-    letter-spacing: 2px;
-    padding: 0.85em 2.75em 0.85em 2.75em;
+    color: #ff5866;
+    font-size: 80%;
 }
 
 #footer {
