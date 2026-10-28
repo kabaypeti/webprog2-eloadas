@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategoria extends Model
 {
-    protected $connection = 'pizza_db';
+    protected $connection = 'mysql_pizza';
     protected $table = 'kategoria';
 
     protected $primaryKey = 'nev';
     protected $keyType = 'string';
+    
+    protected $fillable = ['nev', 'ar'];
 }

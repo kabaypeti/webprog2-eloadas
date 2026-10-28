@@ -1,7 +1,7 @@
 <nav id="nav">
     <ul>
         <li><a class="icon solid fa-home" href="/"><span>Főoldal</span></a></li>
-        <li><a class="icon solid fa-database" href="#"><span>Adatbázis</span></a></li>
+        <li><a class="icon solid fa-database" href="/db"><span>Adatbázis</span></a></li>
         <li>
             <a class="icon solid fa-envelope" ><span>Kapcsolat</span></a>
             <ul>

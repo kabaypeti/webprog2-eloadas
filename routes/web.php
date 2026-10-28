@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PizzaDbController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\Auth2;
@@ -13,6 +14,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+require __DIR__.'/db.php';
 
 Route::get('exercise1', function () { return view('view1'); });
 Route::get('introduction', function () { return view('introduction'); });
