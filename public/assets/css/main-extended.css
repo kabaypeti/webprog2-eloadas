@@ -8,15 +8,20 @@
     padding: 5em 0 0em 0;
 }
 
+table {
+    table-layout: fixed;
+    text-overflow: ellipsis;
+}
+
 label, a {
     user-select: none;
 }
 
-.right-align {
+.row .aln-right {
     text-align: right;
 }
 
-.center-align {
+.row .aln-center {
     text-align: center;
 }
 
@@ -87,4 +92,18 @@ span.alert-error {
 
 #copyright {
     margin-top: 2em;
+}
+
+button[type="submit"].page-btn {
+    padding: 20px;
+    cursor: default;
+}
+
+button[type="submit"]:disabled {
+    background: #ffddd8;
+}
+
+.page-txt {
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
 }

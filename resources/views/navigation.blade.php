@@ -33,7 +33,6 @@
                 @auth
                     <li>
                         <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Kijelentkezés</a>
-
                         <form id="logout-form" action="/logout" method="POST" style="display: none;">
                             @csrf
                         </form>
