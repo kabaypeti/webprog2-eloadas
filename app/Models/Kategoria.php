@@ -12,5 +12,7 @@ class Kategoria extends Model
     protected $primaryKey = 'nev';
     protected $keyType = 'string';
     
+    public $timestamps = false;
+    
     protected $fillable = ['nev', 'ar'];
 }

@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Schema\Builder;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class PizzaDbService {
+class GenericDbService {
     
     /**
      * @var array<Model>
@@ -46,16 +47,57 @@ class PizzaDbService {
     {
         $this->schema = Schema::connection(env('DB_CONNECTION2'));
         $this->models = [
-            'kategoria' => new Kategoria(),
-            'pizza' => new Pizza(),
-            'rendeles' => new Rendeles()
+            'kategoria' => Kategoria::class,
+            'pizza' => Pizza::class,
+            'rendeles' => Rendeles::class
         ];
+    }
+    
+    public function index(string $model) {
+        return $model::query()->get();
+    }
+    
+    public function store(Model $model, Request $request, array $columns) {
+        var_dump($request->only($columns));
+        foreach ($request->only($columns) as $k => $v) {
+            var_dump($k, $v);
+            $model[$k] = $v;
+        }
+        $model->save();
+    }
+    
+    public function show(string $model, string $id) {
+        return $model::query()->whereKey($id)->get()->first();
+    }
+    
+    public function update(string $model, Request $request, array $columns, string $id) {
+        $record = $model::query()->whereKey($id)->get()->first();
+        foreach ($request->only($columns) as $k => $v) {
+            $record[$k] = $v;
+        }
+        $record->save();
+    }
+    
+    public function destroy(string $model, string $id) {
+        $v = $model::query()->whereKey($id)->get()->first();
+        $v->delete();
     }
     
     /** 
      * @return array<string>
     */
     public function get_column_names(string $table_name): array {
+        $column_names = [];
+        if (array_search($table_name, array_keys($this->models)) !== false) {
+            $column_names = $this->schema->getColumnListing($table_name);
+        }
+        return $column_names;
+    }
+    
+    /** 
+     * @return array<string>
+    */
+    public function get_formatted_column_names(string $table_name): array {
         $column_names = [];
         if (array_search($table_name, array_keys($this->models)) !== false) {
             $column_names = $this->schema->getColumnListing($table_name);
@@ -67,9 +109,9 @@ class PizzaDbService {
         return $column_names;
     }
     
-    public function get_table(string $table_name): EloquentBuilder|null {
-        if (array_search($table_name, array_keys($this->models)) !== false) {
-            return $this->models[$table_name]->query();
+    public function get_model_from_table(string $table): Model|null {
+        if (array_search($table, array_keys($this->models)) !== false) {
+            return $this->models[$table];
         }
         return null;
     }

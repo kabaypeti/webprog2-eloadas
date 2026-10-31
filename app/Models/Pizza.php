@@ -13,6 +13,8 @@ class Pizza extends Model
     protected $primaryKey = 'nev';
     protected $keyType = 'string';
     
+    public $timestamps = false;
+    
     protected $fillable = ['nev', 'kategorianev', 'vegetarianus'];
     
     protected $attributes = [
