@@ -3,6 +3,7 @@
 use App\Http\Controllers\Database\KategoriaController;
 use App\Http\Controllers\Database\PizzaController;
 use App\Http\Controllers\Database\RendelesController;
+use App\Http\Controllers\DiagramController;
 use App\Http\Controllers\GenericDbController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,4 +18,4 @@ Route::middleware([])->group(function() {
     Route::apiResource('db/rendeles', RendelesController::class);
 });
 
-Route::get('/dbdiagram', function() { return view('db_diagram'); })->name('db_diagram');
+Route::get('/dbdiagram', [DiagramController::class, 'show'])->name('db_diagram');
