@@ -1,0 +1,1 @@
+<body class="homepage is-preload">{{$slot}}</body>
