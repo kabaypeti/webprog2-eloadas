@@ -1,6 +1,4 @@
-<x-mainpage>
-  <h1>User page</h1>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Nunc pellentesque posuere nunc, at laoreet augue. Donec
-  ultricies eu mi sit amet dictum. Maecenas ut posuere
-</x-mainpage>
+@extends('index')
+@section('msg_extra')
+<h3>Ezt az oldalt csak bejelentkezett felhasználó látja.</h3>
+@endsection

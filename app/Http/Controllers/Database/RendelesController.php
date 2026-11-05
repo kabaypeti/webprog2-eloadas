@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Database;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericDbController;
 use App\Models\Rendeles;
-use App\Services\GenericDbService;
+use App\Services\DbService;
 use Illuminate\Http\Request;
 use Override;
 

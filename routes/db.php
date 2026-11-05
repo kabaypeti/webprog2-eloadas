@@ -12,10 +12,17 @@ use App\Http\Middleware\ExistingDbCheck;
 
 Route::get('/db', function() { return view('db_select'); })->name('db.select');
 
-Route::middleware([])->group(function() {
-    Route::apiResource('db/kategoria', KategoriaController::class);
-    Route::apiResource('db/pizza', PizzaController::class);
-    Route::apiResource('db/rendeles', RendelesController::class);
-});
+$dbs = [
+    'kategoria' => KategoriaController::class,
+    'pizza' => PizzaController::class,
+    'rendeles' => RendelesController::class
+];
+foreach ($dbs as $n => $c) {
+    $uri = 'db/'.$n;
+    Route::get($uri, [$c, 'index']);
+    Route::post($uri, [$c, 'store']);
+    Route::put($uri, [$c, 'update']);
+    Route::delete($uri, [$c, 'destroy']);
+}
 
 Route::get('/dbdiagram', [DiagramController::class, 'show'])->name('db_diagram');

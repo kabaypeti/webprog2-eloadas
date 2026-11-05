@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Rendeles extends Model
 {
     protected $table = 'rendeles';
-    protected $connection = 'mysql_pizza';
     
     public $timestamps = false;
     

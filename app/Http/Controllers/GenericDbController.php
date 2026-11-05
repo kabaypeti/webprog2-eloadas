@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Services\GenericDbService;
+use App\Services\DbService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ abstract class GenericDbController extends Controller
 { 
 
     public function __construct(
-        protected GenericDbService $db
+        protected DbService $db
     ) {
         $this->db = $db;
     }
@@ -37,15 +37,14 @@ abstract class GenericDbController extends Controller
         ]);
     }
     
+    public abstract function store(Request $request);
+    
     public function storeModel(?Request $request, array $columns) {
         $model = $this->getModel();
         $this->db->store(new $model, $request, $columns);
     }
     
-    public function show(string $id)
-    {
-        return $this->db->show($this->getModel(), $id);
-    }
+    public abstract function update(Request $request, string $id);
     
     protected function updateModel(Request $request, array $columns, string $id) {
         $this->db->update($this->getModel(), $request, $columns, $id);

@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pizza;
 use App\Models\Rendeles;
-use App\Services\GenericDbService;
+use App\Services\DbService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +16,7 @@ class DiagramController extends Controller
 { 
 
     public function __construct(
-        protected GenericDbService $db
+        protected DbService $db
     ) {
         $this->db = $db;
     }

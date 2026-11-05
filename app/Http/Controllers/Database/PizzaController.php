@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Database;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GenericDbController;
 use App\Models\Pizza;
-use App\Services\GenericDbService;
+use App\Services\DbService;
 use Illuminate\Http\Request;
 use Override;
 
@@ -12,7 +12,7 @@ class PizzaController extends GenericDbController
 {
     
     public function __construct(
-        protected GenericDbService $db
+        protected DbService $db
     )
     {}
     

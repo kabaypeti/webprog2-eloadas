@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pizza extends Model
 {
-    protected $connection = 'mysql_pizza';
     protected $table = 'pizza';
     
     protected $primaryKey = 'nev';

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $connection = env('DB_CONNECTION2');
+        $connection = null;
         Schema::connection($connection)->create('kategoria', function (Blueprint $table) {
             $table->string('nev')->primary();
             $table->integer('ar');
@@ -38,8 +38,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kategoria');
-        Schema::dropIfExists('pizza');
         Schema::dropIfExists('rendeles');
+        Schema::dropIfExists('pizza');
+        Schema::dropIfExists('kategoria');
     }
 };

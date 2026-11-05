@@ -16,7 +16,7 @@
 		<section id="header">
 			<div class="container">
 				<!-- Nav -->
-					@include('navigation')
+					@include('header')
 					@hasSection('header')
 						<div id="header-content">
 							@yield('header')

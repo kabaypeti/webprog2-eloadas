@@ -22,12 +22,6 @@ class AuthenticatedSessionController extends Controller
             'canResetPassword' => Route::has('password.request'),
             'status' => $request->session()->get('status'),
         ]);
-        /*
-        return Inertia::render('auth/login', [
-            'canResetPassword' => Route::has('password.request'),
-            'status' => $request->session()->get('status'),
-        ]);
-        */
     }
 
     /**
@@ -39,7 +33,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended();
+        $redir = Auth::user()->role == 1 ? 'admin' : 'user';
+        return redirect()->intended($redir);
     }
 
     /**

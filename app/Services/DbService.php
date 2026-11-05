@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class GenericDbService {
+class DbService {
     
     /**
      * @var array<Model>
@@ -45,7 +45,7 @@ class GenericDbService {
     
     public function __construct()
     {
-        $this->schema = Schema::connection(env('DB_CONNECTION2'));
+        $this->schema = Schema::connection(null);
         $this->models = [
             'kategoria' => Kategoria::class,
             'pizza' => Pizza::class,
