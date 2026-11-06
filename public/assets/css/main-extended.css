@@ -86,6 +86,12 @@ span.alert-error {
     font-size: 80%;
 }
 
+span.alert-ok {
+    width: 100%;
+    color: #579b6e;
+    font-size: 80%;
+}
+
 #footer {
     padding: 0 0 0 0;
 }

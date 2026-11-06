@@ -16,8 +16,8 @@
 				<!-- Content -->
 				<div id="content" class="col-8 col-12-medium">
 					
-					<div sstyle="margin-bottom: 15px; text-align: left;">
-						<a href="{{ route('crud.kategoria.create') }}" class="button small">
+					<div style="margin-bottom: 15px; text-align: left;">
+						<a style="width:100%" href="{{ route('crud.kategoria.create') }}" class="button small">
 							Új kategória hozzáadása
 						</a>
 					</div>
@@ -39,19 +39,25 @@
 									<td>{{$v}}</td>
 								@endforeach
 								<td>
-										<a href="{{ route('crud.kategoria.edit', $primaryKeyValue) }}" class="button small"  style="height: auto; line-height: inherit; padding: 0 15px;">
-											Szerkesztés
-										</a>
-									</td>
-									<td>
-										<form action="{{ route('crud.kategoria.destroy',  $primaryKeyValue) }}" method="POST" onsubmit="return confirm('Biztosan törölni szeretnéd ezt a kategóriát?');" style="margin: 0;">
-											@csrf
-											@method('DELETE')
-											<button type="submit" class="button small alert" style="height: auto; line-height: inherit; padding: 0 15px;">
-												törlés
-											</button>
-										</form>
-									</td>
+									<a href="{{ route('crud.kategoria.edit', $primaryKeyValue) }}" class="button small"  style="height: auto; line-height: inherit; padding: 0 15px;">
+										Szerkesztés
+									</a>
+								</td>
+								<td>
+									<a href="#" class="button small alert" onclick="
+											event.preventDefault();
+											if (confirm('Biztosan törölni szeretnéd ezt a kategóriát?')) {
+												document.getElementById('delete-{{$primaryKeyValue}}').submit();
+											}
+										" 
+										style="height: auto; line-height: inherit; padding: 0 15px;">
+										Törlés
+									</a>
+									<form id="delete-{{$primaryKeyValue}}" action="{{ route('crud.kategoria.destroy', $primaryKeyValue) }}" method="POST" style="margin: 0;">
+										@csrf
+										@method('DELETE')
+									</form>
+								</td>
 							</tr>
 						@endforeach
 					</table>

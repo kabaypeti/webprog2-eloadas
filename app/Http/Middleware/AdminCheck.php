@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AdminCheck
@@ -13,14 +14,14 @@ class AdminCheck
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string $role = 'admin'): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->check()) {
-            abort(403, 'A tartalom megtekintéséhez be kell jelentkezned.');
+        if (Auth::user() && Auth::user()->role == 1) {
+            return $next($request);
         }
-        if ($role === 'admin' && auth()->user()->role != 1) {
-            abort(403, 'Erre az oldalra csak adminisztrátorok léphetnek be.');
+        else if (Auth::user()) {
+            return redirect('user');
         }
-        return $next($request);
+        return redirect('login');
     }
 }

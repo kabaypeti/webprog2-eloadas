@@ -24,8 +24,8 @@ abstract class GenericDbController extends Controller
         $model = $this->getModel();
         
         $column_names = $this->db->get_formatted_column_names((new $model)->getTable());
-        $count = $model::query()->get()->count();
-        $data = $model::query()->paginate($per_page)->toArray()['data'];
+        $count = $model::count();
+        $data = $model::paginate($per_page)->toArray()['data'];
         $max_pages = ceil($count / $per_page);
         
         return view('db_display', [

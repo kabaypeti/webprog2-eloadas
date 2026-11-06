@@ -30,7 +30,7 @@ foreach ($dbs as $n => $c) {
 Route::get('/dbdiagram', [DiagramController::class, 'show'])->name('db_diagram');
 
 #CRUD
-Route::middleware([AdminCheck::class])->group(function () {
+Route::middleware(['admin'])->group(function () {
 
     Route::get('/crud', [CrudController::class, 'index'])->name('crud.kategoria.index');
 

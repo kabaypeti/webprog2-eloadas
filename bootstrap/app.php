@@ -26,9 +26,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias(['admin' => \App\Http\Middleware\AdminCheck::class,]);
     })
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias(['db_exists'=>ExistingDbCheck::class]);  
-    })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
