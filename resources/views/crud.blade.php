@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Adatbázis')
+@section('title', 'CRUD')
 @section('head')
 	<link rel="stylesheet" 
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back,arrow_forward"
@@ -17,7 +17,7 @@
 				<div id="content" class="col-8 col-12-medium">
 					
 					<div sstyle="margin-bottom: 15px; text-align: left;">
-						<a href="{{ route('crud.kategoria.store') }}" class="button small">
+						<a href="{{ route('crud.kategoria.create') }}" class="button small">
 							Új kategória hozzáadása
 						</a>
 					</div>

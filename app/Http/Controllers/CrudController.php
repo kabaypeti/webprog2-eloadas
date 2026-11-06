@@ -41,4 +41,31 @@ class CrudController extends Controller
         ]);
         
     }
+
+    public function create()
+    {
+        return view('crud_create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nev' => 'required|string|unique:kategoria,nev',
+            'ar'  => 'required|numeric',
+        ], [
+            'nev.required' => 'A kategória nevének kitöltése kötelező.',
+            'nev.unique'   => 'Ez a kategória név már létezik az adatbázisban.',
+            'ar.required'  => 'Az ár kitöltése kötelező.',
+            'ar.numeric'   => 'Az ár mezőbe csak számot írhatsz.',
+        ]);
+
+        $table = (new $this->modelClass)->getTable();
+        $columns = Schema::getColumnListing($table);
+
+        $columns = array_diff($columns, ['created_at', 'updated_at']);
+
+        $this->db->store(new $this->modelClass, $request, $columns);
+
+        return redirect()->route('crud.kategoria.index');
+    }
 }
