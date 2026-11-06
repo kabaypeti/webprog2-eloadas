@@ -46,7 +46,7 @@ class CrudController extends Controller
     {
         $table = (new $this->modelClass)->getTable();
         $columns = \Illuminate\Support\Facades\Schema::getColumnListing($table);
-        
+
         return array_diff($columns, ['id', 'created_at', 'updated_at']);
     }
 
@@ -101,6 +101,13 @@ class CrudController extends Controller
         $columns = $this->getTableColumns();
         
         $this->db->update($this->modelClass, $request, $columns, $id);
+
+        return redirect()->route('crud.kategoria.index');
+    }
+
+    public function destroy(string $id)
+    {
+        $this->db->destroy($this->modelClass, $id);
 
         return redirect()->route('crud.kategoria.index');
     }
