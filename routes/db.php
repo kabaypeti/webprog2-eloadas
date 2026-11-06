@@ -5,6 +5,7 @@ use App\Http\Controllers\Database\PizzaController;
 use App\Http\Controllers\Database\RendelesController;
 use App\Http\Controllers\DiagramController;
 use App\Http\Controllers\GenericDbController;
+use App\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Middleware\Auth2;
@@ -26,3 +27,10 @@ foreach ($dbs as $n => $c) {
 }
 
 Route::get('/dbdiagram', [DiagramController::class, 'show'])->name('db_diagram');
+
+#CRUD
+
+Route::get('/crud', [CrudController::class, 'index'])->name('crud.kategoria.index');
+Route::post('/crud', [CrudController::class, 'store'])->name('crud.kategoria.store');
+Route::put('/crud/{id}', [CrudController::class, 'update'])->name('crud.kategoria.update');
+Route::delete('/crud/{id}', [CrudController::class, 'destroy'])->name('crud.kategoria.destroy');

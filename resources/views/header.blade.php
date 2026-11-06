@@ -13,7 +13,7 @@
         </li>
         <li><a class="icon solid fa-chart-bar" href="/dbdiagram"><span>Diagram</span></a></li>
         @if (Auth::check() && Auth::user()->role==1)
-            <li><a class="icon solid fa-table" href="#"><span>CRUD</span></a></li>
+            <li><a class="icon solid fa-table" href="/crud"><span>CRUD</span></a></li>
         @endif
         <li>
             @if(Auth::user() !== null)
