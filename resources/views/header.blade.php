@@ -7,7 +7,7 @@
             <ul>
                 <li><a href="#">Üzenet küldése</a></li>
                 @auth
-                    <li><a href="#">Üzenetek megtekintése</a></li>
+                    <li><a href="/uzenetek">Üzenetek megtekintése</a></li>
                 @endauth
             </ul>
         </li>
