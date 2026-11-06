@@ -15,4 +15,27 @@ class UzenetController extends Controller
             'uzenetek' => $uzenetek
         ]);
     }
+
+    public function create()
+    {
+        return view('uzenet');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'szoveg' => 'required|string',
+        ], [
+            'szoveg.required' => 'Az üzenet szövegének kitöltése kötelező.',
+        ]);
+
+        $nev = auth()->check() ? auth()->user()->name : 'Vendég';
+
+        Uzenet::create([
+            'felhasznalo' => $nev,
+            'szoveg'      => $request->input('szoveg'),
+        ]);
+
+        return view('uzenet_siker');
+    }
 }

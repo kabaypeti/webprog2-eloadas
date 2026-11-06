@@ -5,7 +5,7 @@
         <li>
             <a class="icon solid fa-envelope" ><span>Kapcsolat</span></a>
             <ul>
-                <li><a href="#">Üzenet küldése</a></li>
+                <li><a href="/uzenet">Üzenet küldése</a></li>
                 @auth
                     <li><a href="/uzenetek">Üzenetek megtekintése</a></li>
                 @endauth
