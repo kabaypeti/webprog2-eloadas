@@ -31,7 +31,11 @@ Route::get('/dbdiagram', [DiagramController::class, 'show'])->name('db_diagram')
 #CRUD
 
 Route::get('/crud', [CrudController::class, 'index'])->name('crud.kategoria.index');
+
 Route::get('/crud/create', [CrudController::class, 'create'])->name('crud.kategoria.create');
 Route::post('/crud', [CrudController::class, 'store'])->name('crud.kategoria.store');
+
+Route::get('/crud/{id}/edit', [CrudController::class, 'edit'])->name('crud.kategoria.edit');
 Route::put('/crud/{id}', [CrudController::class, 'update'])->name('crud.kategoria.update');
+
 Route::delete('/crud/{id}', [CrudController::class, 'destroy'])->name('crud.kategoria.destroy');

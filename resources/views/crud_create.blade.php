@@ -18,7 +18,6 @@
 					
 					<h2>Új kategória hozzáadása</h2>
 					
-
 					<form action="{{ route('crud.kategoria.store') }}" method="POST" style="margin-top: 20px;">
 						@csrf
 						

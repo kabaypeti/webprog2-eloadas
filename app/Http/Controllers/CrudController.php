@@ -42,6 +42,14 @@ class CrudController extends Controller
         
     }
 
+     protected function getTableColumns(): array
+    {
+        $table = (new $this->modelClass)->getTable();
+        $columns = \Illuminate\Support\Facades\Schema::getColumnListing($table);
+        
+        return array_diff($columns, ['id', 'created_at', 'updated_at']);
+    }
+
     public function create()
     {
         return view('crud_create');
@@ -65,6 +73,34 @@ class CrudController extends Controller
         $columns = array_diff($columns, ['created_at', 'updated_at']);
 
         $this->db->store(new $this->modelClass, $request, $columns);
+
+        return redirect()->route('crud.kategoria.index');
+    }
+
+    public function edit(string $id)
+    {
+        $kategoria = $this->modelClass::findOrFail($id);
+
+        return view('crud_edit', [
+            'kategoria' => $kategoria
+        ]);
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            'nev' => 'required|string|unique:kategoria,nev,' . $id . ',nev',
+            'ar'  => 'required|numeric',
+        ], [
+            'nev.required' => 'A kategória nevének kitöltése kötelező.',
+            'nev.unique'   => 'Ez a kategória név már létezik az adatbázisban.',
+            'ar.required'  => 'Az ár kitöltése kötelező.',
+            'ar.numeric'   => 'Az ár mezőbe csak számot írhatsz.',
+        ]);
+
+        $columns = $this->getTableColumns();
+        
+        $this->db->update($this->modelClass, $request, $columns, $id);
 
         return redirect()->route('crud.kategoria.index');
     }

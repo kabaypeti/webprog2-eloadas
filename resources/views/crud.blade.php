@@ -39,7 +39,7 @@
 									<td>{{$v}}</td>
 								@endforeach
 								<td>
-										<a href="{{ url('crud/' .  $primaryKeyValue . '/edit') }}" class="button small"  style="height: auto; line-height: inherit; padding: 0 15px;">
+										<a href="{{ route('crud.kategoria.edit', $primaryKeyValue) }}" class="button small"  style="height: auto; line-height: inherit; padding: 0 15px;">
 											Szerkesztés
 										</a>
 									</td>
