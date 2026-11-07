@@ -1,4 +1,6 @@
 @extends('index')
 @section('msg_extra')
-<h3>Ezt az oldalt csak bejelentkezett felhasználó látja.</h3>
+<x-banner>
+	<p>Felhasználóként vagy bejelentkezve!</p>
+</x-banner>
 @endsection

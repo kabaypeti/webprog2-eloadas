@@ -1,4 +1,6 @@
 @extends('index')
 @section('msg_extra')
-<h3>Ezt az oldalt csak admin látja.</h3>
+<x-banner>
+	<p>Adminként vagy bejelentkezve!</p>
+</x-banner>
 @endsection
