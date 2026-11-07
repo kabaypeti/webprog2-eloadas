@@ -33,7 +33,7 @@
 								<header>
 									<h2>Üdvözöllek az oldalon!</h2>
 								</header>
-								<a class="image featured"><img src="images/pizza1.jpg" alt="Pizza" /></a>
+								<a class="image featured"><img src="images/Pizza1.jpg" alt="Pizza" /></a>
 								<!--<h3>Ez a főoldal</h3>-->
 								<p>Szereted a pizzát?</p>
 								<p>Ezen az oldalon egy egyszerű pizzás adatbázis tábláit lehet megnézni, üzenetet küldeni a rendszergazdának, valamint az egyik adatbázis diagrammja található. Lehet felhasználót létrehozni, ki és be jelentkezni vele, egyes oldalak csak bejelentkezett vagy admin felhasználónak érhetőek el. Az egyik táblára egy CRUD oldal is meg van valósítva. Az aloldalakról részletesen jobbra olvashatsz.</p>
