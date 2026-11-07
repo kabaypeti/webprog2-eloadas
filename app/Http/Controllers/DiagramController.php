@@ -14,13 +14,6 @@ use function Termwind\render;
 
 class DiagramController extends Controller
 { 
-
-    public function __construct(
-        protected DbService $db
-    ) {
-        $this->db = $db;
-    }
-    
     public function show() {
         $result = Rendeles::
             selectRaw('pizzanev, SUM(darab) AS darab')

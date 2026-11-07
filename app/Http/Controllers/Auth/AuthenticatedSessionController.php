@@ -33,8 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $redir = Auth::user()->role == 1 ? 'admin' : 'user';
-        return redirect()->intended($redir);
+        return redirect()->intended();
     }
 
     /**
